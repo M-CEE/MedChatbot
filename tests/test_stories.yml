@@ -1,0 +1,123 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+version: "3.1"
+
+stories:
+
+- story: greet
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+
+
+- story: inquire symptoms, express gratitude
+  steps:
+    - user: |
+        hello
+      intent: greet
+    - action: utter_greet
+    - user: |
+        Could you clarify the signs of [anxiety](condition)?
+      intent: ask_symptoms
+    - action: utter_symptoms
+    - action: action_fetch_formatted_symptoms
+    - action: utter_confirm
+    - user: |
+        yes, thank you
+      intent: affirm
+    - action: utter_helpful
+    - action: utter_goodbye
+
+
+- story: inquire symptoms without greeting
+  steps:
+    - user: |
+        Are there any early symptoms of [diabetes](condition)?
+      intent: ask_symptoms
+    - action: utter_symptoms
+    - action: action_fetch_formatted_symptoms
+    - action: utter_confirm
+    - user: |
+        that was helpful
+      intent: affirm
+    - action: utter_helpful
+    - user: |
+        see you later
+      intent: goodbye
+    - action: utter_goodbye
+
+
+
+- story: inquire symptoms 1
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      What are the common indicators of asthma?
+    intent: ask_symptoms
+  - action: utter_symptoms
+  - action: action_fetch_formatted_symptoms
+  - action: utter_confirm
+  - user: |
+      yes
+    intent: affirm  
+  - action: utter_helpful
+  - user: |
+      bye bye
+    intent: goodbye
+  - action: utter_goodbye
+
+
+- story: inquire symptoms 2 - deny
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      Tell me how heart disease manifests
+    intent: ask_symptoms
+  - action: utter_symptoms
+  - action: action_fetch_formatted_symptoms
+  - action: utter_confirm
+  - user: |
+      not really
+    intent: deny  
+  - action: utter_not_helpful
+  - user: |
+      goodbye
+    intent: goodbye
+  - action: utter_goodbye
+
+
+
+story: inquire symptoms with follow-up
+  steps:
+    - user: |
+        hey dude
+      intent: greet
+    - action: utter_greet
+    - user: |
+        Can you describe the signs of [allergies](condition)?
+      intent: ask_symptoms
+    - action: utter_symptoms
+    - action: action_fetch_formatted_symptoms
+    - action: utter_confirm
+    - user: |
+        very helpful indeed
+      intent: affirm
+    - action: utter_helpful
+    - user: |
+        Does [chickenpox](condition) come with a rash or fever?
+      intent: ask_symptoms
+    - action: utter_symptoms
+    - action: action_fetch_formatted_symptoms
+    - action: utter_confirm
+    - user: |
+        have a nice day
+      intent: goodbye
+    - action: utter_goodbye

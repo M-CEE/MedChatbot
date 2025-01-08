@@ -1,0 +1,51 @@
+version: "3.1"
+
+intents:
+  - greet
+  - ask_symptoms
+  - affirm
+  - deny
+  - goodbye  
+
+entities:
+  - condition
+
+slots:
+  condition:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: condition
+
+responses:
+  utter_greet:
+  - text: "Hello! How may i help you?"
+  - text: "Hi there! What can i do for you?"
+
+  utter_goodbye:
+  - text: "goodbye"
+  - text: "see you next time!"
+
+  utter_symptoms:
+  - text: "Getting Symptoms from NHS database..."
+
+  utter_confirm:
+  - text: "I hope that helps!"
+  - text: "Does that answer your question?"
+  # - text: ""
+
+  utter_helpful:
+  - text: "Glad i could help."
+
+  utter_not_helpful:
+  - text: pls consult your doctor or physician!
+  
+
+
+actions:
+  - action_fetch_formatted_symptoms
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

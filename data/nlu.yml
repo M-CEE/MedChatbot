@@ -1,0 +1,88 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+
+- intent: ask_symptoms
+  examples: |
+    - What are the main symptoms of [flu](condition)?
+    - Could you list the symptoms of [migraine](condition)?
+    - How do I know if I have [bronchitis](condition)?
+    - Can you describe the signs of [allergies](condition)?
+    - What does [hypertension](condition) feel like?
+    - Are there any early symptoms of [diabetes](condition)?
+    - How can I tell if someone has [anemia](condition)?
+    - Can you provide details about the symptoms of [arthritis](condition)?
+    - What are the warning signs of [stroke](condition)?
+    - Is [depression](condition) associated with specific symptoms?
+    - Tell me how [heart disease](condition) manifests.
+    - Do you know the symptoms of [dengue fever](condition)?
+    - How does [eczema](condition) typically present itself?
+    - What should I watch for with [pneumonia](condition)?
+    - What are the common indicators of [COVID-19](condition)?
+    - What are the physical signs of [lupus](condition)?
+    - Can you explain what happens in [Parkinson’s disease](condition)?
+    - Are there specific symptoms linked to [thyroid disorders](condition)?
+    - Could I have [asthma](condition) if I experience wheezing and shortness of breath?
+    - What are the first symptoms of [multiple sclerosis](condition)?
+    - Can you help identify [sinus infection](condition) symptoms?
+    - What might someone with [fibromyalgia](condition) feel?
+    - Are there any unique signs of [appendicitis](condition)?
+    - What happens when you have [food poisoning](condition)?
+    - Could you clarify the signs of [anxiety](condition)?
+    - What might be the symptoms of [high cholesterol](condition)?
+    - Does [chickenpox](condition) come with a rash or fever?
+
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that was helpful
+    - correct
+    - yes, thank you
+    - thank you
+
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - not quite
+    - I don't think so
+    - don't like that
+    - not really
+
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+
+
